@@ -114,6 +114,8 @@
                         <li @if($pagina == 'asignaturas') class="active" @endif><a href="{{ route('asignaturas.index') }}"><i class="fa fa-circle-o"></i> Asignaturas</a></li>
                         <li @if($pagina == 'municipios') class="active" @endif><a href="{{ route('municipios.index') }}"><i class="fa fa-circle-o"></i> Municipios</a></li>
                         <li @if($pagina == 'consejosp') class="active" @endif><a href="{{ route('consejosp.index') }}"><i class="fa fa-circle-o"></i> Consejos Populares</a></li>
+                        <li @if($pagina == 'cursos') class="active" @endif><a href="{{ route('cursos.index') }}"><i class="fa fa-circle-o"></i> Cursos </a></li>
+
                     </ul>
                 </li>
             </ul>
