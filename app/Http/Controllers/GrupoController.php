@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Grado;
 use App\Grupo;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class GrupoController extends Controller
      */
     public function index()
     {
-        //
+        $grupos = Grupo::all();
+
+        return view('grupos.index')->with('grupos',$grupos);
     }
 
     /**
@@ -24,7 +27,9 @@ class GrupoController extends Controller
      */
     public function create()
     {
-        //
+        $grados = Grado::orderby('numero')->get();
+
+        return view('grupos.create')->with('grados',$grados);
     }
 
     /**
@@ -35,7 +40,10 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $grupo = new Grupo($request->all());
+        $grupo->save();
+
+        return redirect()->route('grupos.index');
     }
 
     /**
@@ -55,9 +63,13 @@ class GrupoController extends Controller
      * @param  \App\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grupo $grupo)
+    public function edit($id)
     {
-        //
+        $grupo = Grupo::find($id);
+
+        $grados = Grado::orderby('numero')->get();
+
+        return view('grupos.edit')->with('grupo',$grupo)->with('grados',$grados);
     }
 
     /**
@@ -67,9 +79,13 @@ class GrupoController extends Controller
      * @param  \App\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grupo $grupo)
+    public function update(Request $request, $id)
     {
-        //
+        $grupo = Grupo::find($id);
+        $grupo->fill($request->all());
+        $grupo->save();
+
+        return redirect()->route('grupos.index');
     }
 
     /**
@@ -78,8 +94,12 @@ class GrupoController extends Controller
      * @param  \App\Grupo  $grupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grupo $grupo)
+    public function destroy($id)
     {
-        //
+        $grupo = Grupo::find($id);
+        $grupo->delete();
+
+        return redirect()->route('grupos.index');
+
     }
 }

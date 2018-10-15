@@ -83,6 +83,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function (){
         'as'  =>'consejosp.destroy'
     ]);
 
+    //Grupos
+    Route::resource('grupos','GrupoController');
+    Route::get('grupos/{id}/destroy',[
+        'uses'=>'GrupoController@destroy',
+        'as'  =>'grupos.destroy'
+    ]);
+
     //Grados
     Route::get('/{id_unidad}/grados','GradoController@index')->name('grados.index');
     Route::get('/{id_unidad}/grados/create','GradoController@create')->name('grados.create');

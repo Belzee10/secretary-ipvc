@@ -16,7 +16,7 @@
                     <td>{{ $u->numero }}</td>
                     <td>
                         <a href="{{ route('grados.index', $u->id) }}"><span class="glyphicon glyphicon-align-center"></span></a> |
-                        <a href="{{ route('unidades.edit', $u) }}"><span class="glyphicon glyphicon-edit"></span></a> |
+                        <a href="{{ route('unidades.edit', $u->id) }}"><span class="glyphicon glyphicon-edit"></span></a> |
                         <a href="{{ route('unidades.destroy', $u->id) }}" onclick="return confirm('Seguro deseas eliminar?')"><span class="glyphicon glyphicon-remove"></span></a>
                     </td>
                 </tr>

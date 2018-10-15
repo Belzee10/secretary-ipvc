@@ -108,7 +108,7 @@
                     </a>
                     <ul class="treeview-menu" style="display: block;">
                         <li @if($pagina == 'unidades') class="active" @endif><a href="{{ route('unidades.index') }}"><i class="fa fa-circle-o"></i> Unidades</a></li>
-                        {{--<li><a href="{{ route('grupos.index') }}"><i class="fa fa-circle-o"></i> Grupos</a></li>--}}
+                        <li @if($pagina == 'grupos') class="active" @endif><a href="{{ route('grupos.index') }}"><i class="fa fa-circle-o"></i> Grupos</a></li>
                         <li @if($pagina == 'usuarios') class="active" @endif><a href="{{ route('usuarios.index') }}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                         <li @if($pagina == 'directores') class="active" @endif><a href="{{ route('directores.index') }}"><i class="fa fa-circle-o"></i> Director</a></li>
                         <li @if($pagina == 'asignaturas') class="active" @endif><a href="{{ route('asignaturas.index') }}"><i class="fa fa-circle-o"></i> Asignaturas</a></li>
